@@ -1,24 +1,22 @@
-import { useState } from 'react'
 import './App.css'
+import { BoardProvider } from './board/BoardProvider'
+import { Board } from './components/Board'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <section id="center">
         <div>
-          <h1>Get started</h1>
+          <h1>2048</h1>
           <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            Use arrow keys to play the game
           </p>
         </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+        <div>
+          <BoardProvider>
+            <Board />
+          </BoardProvider>
+        </div>
       </section>
     </>
   )
