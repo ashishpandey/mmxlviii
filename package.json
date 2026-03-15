@@ -1,5 +1,20 @@
 {
   "name": "mmxlviii",
+  "description": "Let's play some 2048",
+  "main": "eslint.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishpandey/mmxlviii.git"
+  },
+  "author": "Ashish Pandey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashishpandey/mmxlviii/issues"
+  },
+  "homepage": "https://github.com/ashishpandey/mmxlviii#readme",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@playwright/test": "^1.58.2",
     "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
