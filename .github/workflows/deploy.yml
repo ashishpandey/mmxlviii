@@ -2,7 +2,7 @@ name: Deploy TO Github Pages
 
 on:
   workflow_run:
-    workflows: ["Playwright Tests"]
+    workflows: ["Tests"]
     types:
       - completed
 
