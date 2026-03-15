@@ -27,6 +27,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@openrouter/sdk": "^0.9.11",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-hotkeys-hook": "^5.2.4",
