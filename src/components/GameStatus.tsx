@@ -18,8 +18,8 @@ const StatusPanel = ({ status, message, color }: { status: string; message: stri
     const headerStyle = {
         color,
         fontWeight: 'bold',
-        fontSize: '4em',
-        padding: '0.5em 0'
+        fontSize: '2rem',
+        padding: '0.5rem 0'
     }
 
     return (
