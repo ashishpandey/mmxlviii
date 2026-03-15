@@ -6,18 +6,18 @@ See [requirements](./docs/Requirements.md) for what we are trying to achieve
 
 Published to github pages at http://mmxlviii.ashishpandey.com to play in browser
 
-### Development
+## Development
 
 Built using **_React + TypeScript + Vite_**
 
 built and tested with nodejs 24+, npm 11+, chrome 145+
 
-##### Running locally
+### Running locally
 
 * `npm run dev`
 * game is available at `http://localhost:5173`
 
-##### AI hint system
+### AI hint system
 
 Can use hints from an LLM, via openrouter
 
