@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { shiftDown, shiftLeft, shiftRight, shiftUp, transposeGrid, type GameData } from "./board";
+import { seedEmptyNumber, shiftDown, shiftLeft, shiftRight, shiftUp, transposeGrid, type GameData } from "./board";
 
 const _ = null;
 
@@ -92,5 +92,43 @@ describe('board', () => {
             [_, 8, _, 2],
             [4, 2, 2, 4]
         ]);
+    });
+
+    describe('seeding new numbers', () => {
+        test('add new number to board', () => {
+            const board: GameData = [
+                [2, 8, 2, 2],
+                [4, 2, 4, 2],
+                [2, 4, 2, 4],
+                [4, 2, 4, _]
+            ];
+
+            const newBoard = seedEmptyNumber(board, () => 2);
+
+            expect(newBoard).toStrictEqual([
+                [2, 8, 2, 2],
+                [4, 2, 4, 2],
+                [2, 4, 2, 4],
+                [4, 2, 4, 2]
+            ]);
+        });
+
+        test('no changes to the board when no empty cells', () => {
+            const board: GameData = [
+                [2, 8, 2, 2],
+                [4, 2, 4, 2],
+                [2, 4, 2, 4],
+                [4, 2, 4, 8]
+            ];
+
+            const newBoard = seedEmptyNumber(board, () => 2);
+
+            expect(newBoard).toStrictEqual([
+                [2, 8, 2, 2],
+                [4, 2, 4, 2],
+                [2, 4, 2, 4],
+                [4, 2, 4, 8]
+            ]);
+        });
     });
 });

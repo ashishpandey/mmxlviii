@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { shiftRowLeft, type Row } from "./row";
+import { isRowPlayable, shiftRowLeft, type Row } from "./row";
 
 const _ = null;
 
@@ -26,5 +26,22 @@ describe('shift row', () => {
         const row = [2, 2, 2, _] as Row;
         const shifted = shiftRowLeft(row);
         expect(shifted).toStrictEqual([4, 2, _, _]);
+    });
+});
+
+describe('row playable status', () => {
+    test('playable when empty cells', () => {
+        const row = [2, _, 4, 8] as Row;
+        expect(isRowPlayable(row)).toStrictEqual(true);
+    });
+
+    test('playable when collapsible cells', () => {
+        const row = [2, 2, 4, 8] as Row;
+        expect(isRowPlayable(row)).toStrictEqual(true);
+    });
+    
+    test('not playable when no collapsible cells and row full', () => {
+        const row = [2, 4, 2, 8] as Row;
+        expect(isRowPlayable(row)).toStrictEqual(false);
     });
 });

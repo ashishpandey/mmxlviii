@@ -1,24 +1,16 @@
 import './App.css'
 import { GameDataProvider } from './data/GameDataProvider'
 import { Board } from './components/Board'
+import { GameStatus } from './components/GameStatus'
 
 function App() {
   return (
-    <>
+    <GameDataProvider>
       <section id="center">
-        <div>
-          <h1>2048</h1>
-          <p>
-            Use arrow keys to play the game
-          </p>
-        </div>
-        <div>
-          <GameDataProvider>
-            <Board />
-          </GameDataProvider>
-        </div>
+        <GameStatus />
+        <Board />
       </section>
-    </>
+    </GameDataProvider>
   )
 }
 

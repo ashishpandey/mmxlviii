@@ -1,52 +1,28 @@
-import { useHotkeys } from "react-hotkeys-hook";
-import { shiftDown, shiftLeft, shiftRight, shiftUp } from "../data/board";
-import { useBoard } from "../data/GameDataProvider";
 import './board.css';
+import { useHotkeys } from "react-hotkeys-hook";
+import { useBoard } from "../data/GameDataProvider";
 import type { Cell } from "../data/row";
 import { useSwipeable } from "react-swipeable";
-import { useCallback } from "react";
-
-type ShiftDirection = 'left' | 'right' | 'up' | 'down';
-
 export const Board = () => {
-    const [board, setBoard] = useBoard();
-
-    const shiftBoard = useCallback((direction: ShiftDirection) => {
-        let newBoard;
-        switch(direction) {
-            case 'left':
-                newBoard = shiftLeft(board);
-                break;
-            case 'right':
-                newBoard = shiftRight(board);
-                break;
-            case 'up':
-                newBoard = shiftUp(board);
-                break;
-            case 'down':
-                newBoard = shiftDown(board);
-                break;
-        }
-        setBoard(newBoard as any);
-    }, [board, setBoard]);
+    const {grid, shiftGrid} = useBoard();
 
     const swipeHandlers = useSwipeable({
-        onSwipedLeft: () => shiftBoard('left'),
-        onSwipedRight: () => shiftBoard('right'),
-        onSwipedUp: () => shiftBoard('up'),
-        onSwipedDown: () => shiftBoard('down'),
+        onSwipedLeft: () => shiftGrid('left'),
+        onSwipedRight: () => shiftGrid('right'),
+        onSwipedUp: () => shiftGrid('up'),
+        onSwipedDown: () => shiftGrid('down'),
         preventScrollOnSwipe: true,
         trackMouse: true
     });
 
-    useHotkeys('arrowleft', () => shiftBoard('left'));
-    useHotkeys('arrowright', () => shiftBoard('right'));
-    useHotkeys('arrowup', () => shiftBoard('up'));
-    useHotkeys('arrowdown', () => shiftBoard('down'));
+    useHotkeys('arrowleft', () => shiftGrid('left'));
+    useHotkeys('arrowright', () => shiftGrid('right'));
+    useHotkeys('arrowup', () => shiftGrid('up'));
+    useHotkeys('arrowdown', () => shiftGrid('down'));
 
     return (
         <div className="board" {...swipeHandlers}>
-            {board.map((row, i) => (
+            {grid.map((row, i) => (
                 <div key={i} className="row">
                     {row.map((cell, j) => (
                         <Tile key={j} value={cell} />

@@ -36,3 +36,13 @@ const compressRow = (row: number[]): number[] => {
   compressedRow.push(lastNum);
   return compressedRow;
 }
+
+export const isRowPlayable = (row: Row): boolean => {
+  if(row.some(cell => cell === null)) return true;
+
+  for(let i=0; i<3; i++) {
+    if(row[i] === row[i+1]) return true;
+  }
+
+  return false;
+}

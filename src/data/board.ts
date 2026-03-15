@@ -46,3 +46,26 @@ export const shiftUp = (grid: GameData): GameData => {
 export const shiftDown = (grid: GameData): GameData => {
   return transposeGrid(shiftRight(transposeGrid(grid)));
 }
+
+export const nextNumGenerator = (): number => Math.random() < 0.5 ? 4 : 2;
+
+export const seedEmptyNumber = (grid: GameData, getNextNumber: () => number): GameData => {
+  const numEmptyCells = grid.flat().filter(cell => cell === null).length;
+  if(numEmptyCells === 0) return grid;
+
+  const chosenIndex = Math.floor(Math.random() * numEmptyCells);
+  let seenIndex = 0;
+  const newGrid: GameData = grid.map(row => row.map(cell => {
+    if(cell === null) {
+      if(seenIndex === chosenIndex) {
+        seenIndex++;
+        return getNextNumber();
+      }
+      seenIndex++;
+    }
+    return cell;
+  }) as Row) as GameData;
+
+  return newGrid;
+}
+
