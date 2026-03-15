@@ -6,7 +6,7 @@ export const HintProvider = () => {
   return orEnabled ? <Hint /> : null;
 };
 
-const Hint = () => {
+export const Hint = () => {
   const { hint, loading, error, getHint, cancelHint } = useHint();
 
   if(hint) return (
