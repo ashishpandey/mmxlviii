@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/experimental-ct-react';
-import type { GameData } from '../../src/data/board';
+import type { GameData } from '../../src/data/types';
 import { TestBoard } from '../test/TestBoard';
 import { readGrid } from '../test/board_util';
 

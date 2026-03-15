@@ -1,5 +1,4 @@
-export type Cell = number | null;
-export type Row = [Cell, Cell, Cell, Cell];
+import type { Cell, Row } from "./types";
 
 export const shiftRowLeft = (row: Row): Row => {
   const numsToCompress = row.filter(cell => cell !== null) as number[];

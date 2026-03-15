@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import type { GameData } from "./board";
+import type { GameData } from "./types";
 import { getGameState } from "./state";
 
 const _ = null;

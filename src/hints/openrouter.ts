@@ -1,6 +1,6 @@
 import { OpenRouter } from "@openrouter/sdk";
 import { useEffect, useRef, useState } from "react";
-import { useBoard } from "../data/GameDataProvider";
+import { useBoard } from "../data/hooks";
 import { isAbortError } from "@openrouter/sdk/lib/http.js";
 
 export const useOpenRouter = () => {
@@ -29,7 +29,7 @@ export const useHint = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const prompt = useHintPrompt();
-    let abortControllerRef = useRef<AbortController | null>(null);
+    const abortControllerRef = useRef<AbortController | null>(null);
 
     useEffect(() => {
         // cleanup on unmount

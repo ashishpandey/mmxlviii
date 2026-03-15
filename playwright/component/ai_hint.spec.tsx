@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/experimental-ct-react';
 import { Hint } from '../../src/components/HintProvider';
 
 test.describe('HintProvider', () => {    
-    test('can show hint button', async ({ page, mount }) => {
+    test('can show hint button', async ({ mount }) => {
         const hintProvider = await mount(<Hint />);
         const hint = hintProvider.getByText('Get hint');
 

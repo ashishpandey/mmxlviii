@@ -1,8 +1,7 @@
 import { expect, type MountResult } from "@playwright/experimental-ct-react";
-import type { GameData } from "../../src/data/board";
-import { Cell } from "../../src/data/row";
+import type { GameData, Cell } from "../../src/data/types";
 
-export const gridText = (grid: GameData) => grid.flat().map(v => v ? `${v}` : '');
+export const gridText = (grid: GameData) => grid.flat().map((v: Cell) => v ? `${v}` : '');
 
 export const expertBoard = async (board: MountResult, grid: GameData) => {
     const tiles = board.locator('.tile');

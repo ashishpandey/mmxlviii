@@ -1,6 +1,5 @@
-import { shiftRowLeft, type Cell, type Row } from "./row";
-
-export type GameData = [Row, Row, Row, Row];
+import { shiftRowLeft } from "./row";
+import type { GameData, Row, Cell } from "./types";
 
 const initTile = (): Cell => Math.random() < 0.33 ? 2 : null;
 

@@ -1,8 +1,10 @@
 import './board.css';
 import { useHotkeys } from "react-hotkeys-hook";
-import { useBoard } from "../data/GameDataProvider";
-import type { Cell } from "../data/row";
+import { useBoard } from "../data/hooks";
+import type { Cell } from "../data/types";
 import { useSwipeable } from "react-swipeable";
+import { memo } from 'react';
+
 export const Board = () => {
     const {grid, shiftGrid} = useBoard();
 
@@ -33,7 +35,7 @@ export const Board = () => {
     );
 };
 
-export const Tile = ({ value }: { value: Cell }) => {
+export const Tile = memo(({ value }: { value: Cell }) => {
 
     const luminosity = value ? 90 - (Math.log2(value) * 5) : 100;
 
@@ -47,4 +49,4 @@ export const Tile = ({ value }: { value: Cell }) => {
             {value}
         </div>
     );
-};
+});

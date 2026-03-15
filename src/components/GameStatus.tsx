@@ -1,4 +1,4 @@
-import { useBoard } from "../data/GameDataProvider";
+import { useBoard } from "../data/hooks";
 
 export const GameStatus = () => {
     const { status } = useBoard();

@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { isRowPlayable, shiftRowLeft, type Row } from "./row";
+import { isRowPlayable, shiftRowLeft } from "./row";
+import type { Row } from "./types";
 
 const _ = null;
 

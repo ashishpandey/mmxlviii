@@ -1,5 +1,6 @@
 import { describe, test, expect } from "vitest";
-import { seedEmptyNumber, shiftDown, shiftLeft, shiftRight, shiftUp, transposeGrid, type GameData } from "./board";
+import { seedEmptyNumber, shiftDown, shiftLeft, shiftRight, shiftUp, transposeGrid } from "./board";
+import type { GameData } from "./types";
 
 const _ = null;
 

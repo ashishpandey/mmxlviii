@@ -1,7 +1,6 @@
-import { transposeGrid, type GameData } from "./board";
+import { transposeGrid } from "./board";
 import { isRowPlayable } from "./row";
-
-export type GameState = 'playing' | 'gameover' | 'win';
+import type { GameState, GameData } from "./types";
 
 const isPlayable = (grid: GameData): boolean => {
     return grid.some(isRowPlayable) || transposeGrid(grid).some(isRowPlayable);

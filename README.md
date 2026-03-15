@@ -8,6 +8,9 @@ Published to github pages at http://mmxlviii.ashishpandey.com to play in browser
 
 ## Development
 
+[![Tests](https://github.com/ashishpandey/mmxlviii/actions/workflows/test.yml/badge.svg)](https://github.com/ashishpandey/mmxlviii/actions/workflows/test.yml)
+[![Deploy](https://github.com/ashishpandey/mmxlviii/actions/workflows/deploy.yml/badge.svg)](https://github.com/ashishpandey/mmxlviii/actions/workflows/deploy.yml)
+
 Built using **_React + TypeScript + Vite_**
 
 built and tested with nodejs 24+, npm 11+, chrome 145+
