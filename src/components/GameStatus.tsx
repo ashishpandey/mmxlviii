@@ -5,7 +5,7 @@ export const GameStatus = () => {
 
     switch (status) {
         case 'playing':
-            return (<StatusPanel status="2048" message="⬅️ ⬆️ Use arrow keys to play the game ⬇️ ➡️" color="#cccccc" />);
+            return (<StatusPanel status="2048" message="⬅️ ⬆️ Use arrow keys or swipe to play ⬇️ ➡️" color="#cccccc" />);
         case 'win':
             return (<StatusPanel status="🏆 Congratulations 🏆" message="You've reached 2048! Refresh the page to play again" color="green" />);
         case 'gameover':
