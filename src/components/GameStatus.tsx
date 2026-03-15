@@ -23,7 +23,7 @@ const StatusPanel = ({ status, message, color }: { status: string; message: stri
     }
 
     return (
-        <div>
+        <div className="game-status">
             <div style={headerStyle}>{status}</div>
             <p>{message}</p>
         </div>
