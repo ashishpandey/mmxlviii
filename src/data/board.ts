@@ -12,9 +12,7 @@ export const initBoard = (): GameData => [
 ];
 
 export const shiftLeft = (grid: GameData): GameData => {
-  const shifted = grid.map(shiftRowLeft) as GameData;
-  console.log('shifted left', shifted);
-  return shifted;
+  return grid.map(shiftRowLeft) as GameData;
 }
 
 const reverseGrid = (grid: GameData): GameData => {
@@ -37,7 +35,7 @@ export const transposeGrid = (grid: GameData): GameData => {
       newGrid[i][j] = grid[j][i];
     }
   }
-  console.log('transposed grid', newGrid);
+  
   return newGrid;
 }
 
