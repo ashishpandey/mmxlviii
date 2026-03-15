@@ -1,5 +1,5 @@
 import './App.css'
-import { GameDataProvider } from './board/GameDataProvider'
+import { GameDataProvider } from './data/GameDataProvider'
 import { Board } from './components/Board'
 
 function App() {

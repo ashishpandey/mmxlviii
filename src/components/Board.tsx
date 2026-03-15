@@ -1,17 +1,29 @@
 import { useHotkeys } from "react-hotkeys-hook";
-import { shiftLeft, type Cell } from "../board";
-import { useBoard } from "../board/GameDataProvider";
+import { shiftDown, shiftLeft, shiftRight, shiftUp } from "../data/board";
+import { useBoard } from "../data/GameDataProvider";
 import './board.css';
+import type { Cell } from "../data/row";
 
 export const Board = () => {
     const [board, setBoard] = useBoard();
 
-    console.log('rendering board', board);
-
     useHotkeys('arrowleft', () => {
-        console.log('left', board);
         const newBoard = shiftLeft(board);
-        console.log('new board', newBoard);
+        setBoard(newBoard);
+    });
+
+    useHotkeys('arrowright', () => {
+        const newBoard = shiftRight(board);
+        setBoard(newBoard);
+    });
+
+    useHotkeys('arrowup', () => {
+        const newBoard = shiftUp(board);
+        setBoard(newBoard);
+    });
+
+    useHotkeys('arrowdown', () => {
+        const newBoard = shiftDown(board);
         setBoard(newBoard);
     });
 

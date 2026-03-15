@@ -1,26 +1,10 @@
-
 export type Cell = number | null;
-type Row = [Cell, Cell, Cell, Cell];
-export type GameData = [Row, Row, Row, Row];
+export type Row = [Cell, Cell, Cell, Cell];
 
-const initTile = (): Cell => Math.random() < 0.33 ? 2 : null;
-
-export const initBoard = (): GameData => [
-  [initTile(), initTile(), initTile(), initTile()],
-  [initTile(), initTile(), initTile(), initTile()],
-  [initTile(), initTile(), initTile(), initTile()],
-  [initTile(), initTile(), initTile(), initTile()],
-];
-
-export const shiftLeft = (grid: GameData): GameData => {
-  return grid.map(shiftRow) as GameData;
-}
-
-export const shiftRow = (row: Row): Row => {
+export const shiftRowLeft = (row: Row): Row => {
   const numsToCompress = row.filter(cell => cell !== null) as number[];
   
-  const compressed = compressRow(numsToCompress);
-  const newRow: Cell[] = compressed.reverse();
+  const newRow = compressRow(numsToCompress) as Cell[];
   const emptyCells = 4-newRow.length;
   for(let i=0; i<emptyCells; i++) {
     newRow.push(null);
@@ -33,9 +17,9 @@ const compressRow = (row: number[]): number[] => {
   if(row.length === 0) return [];
   
   const compressedRow: number[] = [];
-  let lastNum: number = row.pop() as number;  // we know there is at least 1
+  let lastNum: number = row.shift() as number;  // we know there is at least 1
   while(row.length > 0) {    // go through the numbers
-    const num: number = row.pop() as number; // we know there is at least 1
+    const num: number = row.shift() as number; // we know there is at least 1
     if(num === lastNum) {
       // we have a match, so we can compress
       compressedRow.push(num * 2);

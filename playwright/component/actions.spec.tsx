@@ -1,5 +1,5 @@
 import { test } from '@playwright/experimental-ct-react';
-import type { GameData } from '../../src/board';
+import type { GameData } from '../../src/data/board';
 import { TestBoard } from '../test/TestBoard';
 import { expertBoard } from '../test/board_util';
 

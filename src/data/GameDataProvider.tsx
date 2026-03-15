@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { initBoard, type GameData } from ".";
+import { initBoard, type GameData } from "./board";
 
 const GameDataContext = createContext<[GameData, (tiles: GameData) => void]>([initBoard(), () => {}]);
 
