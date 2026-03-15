@@ -1,5 +1,5 @@
 import './App.css'
-import { BoardProvider } from './board/BoardProvider'
+import { GameDataProvider } from './board/GameDataProvider'
 import { Board } from './components/Board'
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
           </p>
         </div>
         <div>
-          <BoardProvider>
+          <GameDataProvider>
             <Board />
-          </BoardProvider>
+          </GameDataProvider>
         </div>
       </section>
     </>
