@@ -32,3 +32,6 @@ local.md
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# protect local env
+.env
