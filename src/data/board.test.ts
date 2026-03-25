@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { seedEmptyNumber, shiftDown, shiftLeft, shiftRight, shiftUp, transposeGrid } from "./board";
+import { seedEmptyNumber, shiftBoard, shiftDown, shiftLeft, shiftRight, shiftUp, transposeGrid } from "./board";
 import type { GameData } from "./types";
 
 const _ = null;
@@ -130,6 +130,21 @@ describe('board', () => {
                 [2, 4, 2, 4],
                 [4, 2, 4, 8]
             ]);
+        });
+    });
+
+    describe('shifting board', () => {
+        test('can shift in any direction', () => {
+            const board: GameData = [
+                [_, _, _, 2],
+                [_, _, _, 2],
+                [_, _, _, _],
+                [_, 2, 4, 2]
+            ];
+
+            const shifted = shiftBoard(board, 'right');
+
+            expect(shifted).toStrictEqual(board);
         });
     });
 });
